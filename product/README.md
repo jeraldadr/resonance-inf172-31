@@ -3,6 +3,8 @@
 
   This is a code bundle for Interactive Web App Prototype. The original project is available at https://www.figma.com/design/togCAMXB5loEnBzD7HNEOT/Interactive-Web-App-Prototype.
 
+  **Deployed product page:** https://resonance-inf172-31.vercel.app/
+
   ## Running the code
 
   Run `npm i` to install the dependencies.
