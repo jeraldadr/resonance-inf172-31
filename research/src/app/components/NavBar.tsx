@@ -6,6 +6,7 @@ const navItems = [
   { id: "problem", label: "Problem Statement" },
   { id: "goals", label: "Research Goals" },
   { id: "prototype", label: "Prototype" },
+  { id: "wireframes", label: "Wireframes" },
   { id: "user-testing", label: "User Testing" },
   { id: "impact", label: "Impact" },
 ];

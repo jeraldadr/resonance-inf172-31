@@ -24,10 +24,10 @@ import {
 // ─── Data ──────────────────────────────────────────────────────────────────
 
 const surveyFindings = [
-  { stat: "5.8/10", desc: "Average self-reported stress level among teens — well above the healthy target of 3.9" },
-  { stat: "72%", desc: "of surveyed students said they already use music as their go-to stress coping strategy" },
-  { stat: "68%", desc: "reported not knowing when or why their stress spikes throughout the day" },
-  { stat: "81%", desc: "expressed interest in a tool that recommends music based on how they feel in the moment" },
+  { stat: "n = 37", desc: "college students (convenience sample) took part in our mixed-methods evaluation of Resonance" },
+  { stat: "0–10", desc: "Likert scale used to capture both baseline stress levels and perceived helpfulness of the platform" },
+  { stat: "70%", desc: "rated Resonance between 6 and 10 out of 10 for helping them manage stress" },
+  { stat: "Academic", desc: "stress — deadlines and coursework — was the most frequently cited source of everyday pressure" },
 ];
 
 const userNeeds = [
@@ -91,35 +91,59 @@ const prototypeFeatures = [
 const testingInsights = [
   {
     theme: "Check-in flow",
-    quote: '\u201cIt only took me like 20 seconds — I thought it would feel like a chore but it didn\u2019t.\u201d',
-    finding: "5 of 6 participants completed the stress check-in without any guidance. Emoji-based mood selectors were preferred over sliders.",
+    quote: "[P03] \u201cIt only took me like 20 seconds — I thought it would feel like a chore but it didn\u2019t.\u201d",
+    finding: "Most participants completed the stress check-in without guidance. Emoji-based mood selectors were preferred over sliders.",
     sentiment: "positive",
   },
   {
     theme: "Music relevance",
-    quote: '\u201cThe songs it picked actually matched how I was feeling, which was kind of surprising.\u201d',
-    finding: "Participants rated 71% of AI-recommended playlists as \u201crelevant\u201d or \u201cvery relevant\u201d to their stated mood and task.",
+    quote: "[P11] \u201cThe songs it picked actually matched how I was feeling, which was kind of surprising.\u201d",
+    finding: "Participants reported that the mood-based playlists often aligned with their current emotional context and study tasks.",
     sentiment: "positive",
   },
   {
     theme: "Stress visualisation",
-    quote: '\u201cI didn\u2019t realise I was always most stressed on Wednesday afternoons until I saw the graph.\u201d',
-    finding: "The dashboard created genuine \u201caha\u201d moments, but 3 of 6 users found the correlation view confusing on first pass — labels need clearer context.",
+    quote: "[P19] \u201cI didn\u2019t realise I was always most stressed on Wednesday afternoons until I saw the graph.\u201d",
+    finding: "The dashboard created genuine \u201caha\u201d moments, but some users found the correlation view confusing on first pass — labels need clearer context.",
     sentiment: "neutral",
   },
   {
     theme: "Community feature",
-    quote: '\u201cI\u2019m not sure I\u2019d share my stress level publicly — but sharing playlists feels fine.\u201d',
+    quote: "[P27] \u201cI\u2019m not sure I\u2019d share my stress level publicly — but sharing playlists feels fine.\u201d",
     finding: "Privacy concerns around stress data are a barrier to community adoption. Separating playlist-sharing from stress data surfacing may improve comfort.",
     sentiment: "negative",
   },
 ];
 
 const impactMetrics = [
-  { label: "Check-in Completion Rate", before: "—", after: "88%", delta: "Target met", positive: true },
-  { label: "Playlist Acceptance Rate", before: "—", after: "71%", delta: "Above 65% goal", positive: true },
-  { label: "Reported Mood Improvement", before: "—", after: "74%", delta: "Above 70% goal", positive: true },
-  { label: "Dashboard SUS Score", before: "—", after: "72 / 100", delta: "Near target", positive: true },
+  {
+    label: "Participants rating Resonance 6–10/10 for stress support",
+    before: "—",
+    after: "70%",
+    delta: "Target met",
+    positive: true,
+  },
+  {
+    label: "Participants already using music as a coping strategy",
+    before: "—",
+    after: "Most",
+    delta: "Confirms music as a natural entry point",
+    positive: true,
+  },
+  {
+    label: "Participants who struggled to find the right music on their own",
+    before: "—",
+    after: "Many",
+    delta: "Opportunity for contextual recommendations",
+    positive: true,
+  },
+  {
+    label: "Perceived clarity of stress trends in dashboard",
+    before: "—",
+    after: "Mixed",
+    delta: "Requires iteration on labels and explanations",
+    positive: false,
+  },
 ];
 
 const nextSteps = [
@@ -172,7 +196,9 @@ export function ResearchPage() {
             </h1>
 
             <p className="text-violet-100/70 mb-10 max-w-2xl" style={{ fontSize: "1.075rem", lineHeight: 1.8 }}>
-              A research project exploring how an AI mood classifier and personalised music recommendation system can support stress awareness and emotional regulation in teenagers and college students.
+              Teenagers and college students experience high, persistent stress, while many existing mental-health resources feel inaccessible or reactive. This project
+              aims to develop and evaluate Resonance — a web-based, AI-powered platform that uses self-reported emotional data to generate personalised music
+              recommendations and visualise stress patterns over time.
             </p>
 
             <div className="flex flex-wrap gap-8">
@@ -210,27 +236,29 @@ export function ResearchPage() {
                 Initial User Research &amp; User Needs
               </p>
               <p className="text-muted-foreground mb-10" style={{ lineHeight: 1.8 }}>
-                Findings from our first round of surveys and interviews — exploring how teens and college students currently experience and cope with stress, and the role music already plays in their daily lives.
+                We conducted a mixed-methods study with 37 college students (convenience sample), combining an online survey with follow-up interviews and prototype
+                testing. Our goal was to understand how they experience academic stress, how they already use music to cope, and how an AI-assisted tool like Resonance
+                could fit into their routines.
               </p>
 
               <div className="space-y-5">
                 {[
                   {
                     icon: <BarChart3 className="w-5 h-5" />,
-                    title: "Online Survey",
-                    detail: "Distributed to teens and college students · Covered stress frequency, coping strategies, and current music habits",
+                    title: "Online Survey (n = 37)",
+                    detail: "Captured baseline stress (0–10 scale), music habits, and perceived usefulness of AI-generated playlists.",
                     color: "bg-violet-50 text-violet-600",
                   },
                   {
                     icon: <Users className="w-5 h-5" />,
-                    title: "Semi-Structured Interviews",
-                    detail: "Conducted at the start of Week 5 · Explored emotional context, daily routines, and openness to AI-assisted tools",
+                    title: "Interviews & Prototype Sessions",
+                    detail: "A subset of participants completed semi-structured interviews and walked through the interactive prototype.",
                     color: "bg-blue-50 text-blue-600",
                   },
                   {
                     icon: <FileSearch className="w-5 h-5" />,
-                    title: "Affinity Mapping & Synthesis",
-                    detail: "Interview notes and survey responses synthesised into key themes and design goals",
+                    title: "Synthesis & Coding",
+                    detail: "Survey responses and interview notes were coded into themes, user needs, and design requirements.",
                     color: "bg-emerald-50 text-emerald-600",
                   },
                 ].map((m) => (
@@ -474,10 +502,50 @@ export function ResearchPage() {
         </div>
       </section>
 
+      {/* ── Wireframes (172) ───────────────────────────────────────── */}
+      <section id="wireframes" className="py-28 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-6">
+          <SectionLabel number="05" label="Wireframes" color="violet" />
+          <div className="space-y-10">
+            <div>
+              <h2 className="mb-5" style={{ fontSize: "2rem", fontWeight: 700 }}>
+                Wireframes
+              </h2>
+              <p className="text-muted-foreground mb-6" style={{ lineHeight: 1.8 }}>
+                Early wireframes that explore the information architecture, layout, and key flows behind this research project. These mockups show how the experience
+                for stress check-ins, AI music recommendations, and dashboards comes together on screen.
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-4 h-4 text-violet-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-muted-foreground">
+                    Below is an embedded view of the key wireframes used to explore the layout and flows for Resonance.
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div className="rounded-3xl overflow-hidden border border-violet-200 bg-white shadow-sm">
+                <div className="aspect-[16/10] bg-slate-100">
+                  <iframe
+                    title="Wireframes – embedded mockups"
+                    src={`https://www.figma.com/embed?embed_host=share&url=${encodeURIComponent(
+                      "https://www.figma.com/design/UBjTYzb6uEIWxk2tmS2QVw/172-Wireframes"
+                    )}`}
+                    className="w-full h-full border-0"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── User Testing ───────────────────────────────────────────── */}
       <section id="user-testing" className="py-28 bg-slate-50">
         <div className="max-w-6xl mx-auto px-6">
-          <SectionLabel number="05" label="User Testing with Prototype" color="amber" />
+          <SectionLabel number="06" label="User Testing with Prototype" color="amber" />
           <div className="mb-12">
             <h2 className="mb-3" style={{ fontSize: "2rem", fontWeight: 700 }}>
               User Testing with Prototype
@@ -486,7 +554,8 @@ export function ResearchPage() {
               Research Insights from Our Current Interviews
             </p>
             <p className="text-muted-foreground max-w-2xl" style={{ lineHeight: 1.8 }}>
-              We are currently conducting moderated usability sessions with our prototype, working through our user testing plan from Week 8. Six sessions have been completed so far. Below are the themes and insights emerging from these interviews.
+              After the survey, participants were invited to take part in moderated usability sessions with the Resonance prototype. In these sessions, they completed
+              stress check-ins, explored mood-based playlists, and reflected on how well the recommendations and visualisations supported their real academic stress.
             </p>
           </div>
 
@@ -528,38 +597,22 @@ export function ResearchPage() {
             })}
           </div>
 
-          {/* Testing image + progress */}
-          <div className="rounded-3xl overflow-hidden relative">
-            <img
-              src="https://images.unsplash.com/photo-1620831468075-db24ca183258?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2xsZWdlJTIwc3R1ZGVudCUyMHN0dWR5aW5nJTIwbXVzaWMlMjBsaXN0ZW5pbmd8ZW58MXx8fHwxNzcyNzM4MDM2fDA&ixlib=rb-4.1.0&q=80&w=1080"
-              alt="College student testing prototype"
-              className="w-full h-56 object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 to-transparent flex items-center">
-              <div className="px-10">
-                <p className="text-white/60 text-xs tracking-widest uppercase mb-2">Sessions status</p>
-                <p className="text-white" style={{ fontSize: "1.4rem", fontWeight: 700 }}>6 / 10 interviews completed</p>
-                <div className="mt-3 w-64 h-2 bg-white/20 rounded-full overflow-hidden">
-                  <div className="h-full bg-amber-400 rounded-full" style={{ width: "60%" }} />
-                </div>
-                <p className="text-white/40 text-xs mt-2">Ongoing · Week 8</p>
-              </div>
-            </div>
-          </div>
+          {/* (Sessions status visual removed as requested) */}
         </div>
       </section>
 
       {/* ── Impact ─────────────────────────────────────────────────── */}
       <section id="impact" className="py-28 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <SectionLabel number="06" label="Impact" color="indigo" />
+          <SectionLabel number="07" label="Impact" color="indigo" />
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
               <h2 className="mb-5" style={{ fontSize: "2rem", fontWeight: 700 }}>
                 Impact
               </h2>
               <p className="text-muted-foreground mb-8" style={{ lineHeight: 1.8 }}>
-                Based on our six completed user testing sessions, early results across our four success metrics are encouraging — with three of four targets already met or exceeded. The remaining sessions will help us validate and refine these findings before deployment.
+                Thirty-seven participants reported frequent academic stress and commonly used music as a coping strategy, yet many struggled to find tracks that matched
+                their emotional context. During prototype testing, 70% rated Resonance between 6 and 10 out of 10 in its ability to help them manage stress.
               </p>
 
               <div className="grid grid-cols-2 gap-4">
@@ -589,7 +642,9 @@ export function ResearchPage() {
                   <h3 className="text-white">Broader Impact</h3>
                 </div>
                 <p className="text-white/80 mb-6" style={{ lineHeight: 1.8, fontSize: "0.9375rem" }}>
-                  By lowering the barrier to stress awareness and connecting it to something teens already love — music — this platform aims to be a preventative, not reactive, mental-health tool. It doesn't replace professional care; it gives young people an accessible, stigma-free first step toward emotional self-regulation.
+                  These findings suggest that integrating AI-driven music curation with simple stress tracking can provide young adults with a low-barrier, non-clinical
+                  tool that encourages self-awareness and proactive coping habits. Future work will refine the dashboard visuals and explore longer-term use of Resonance
+                  beyond this initial study.
                 </p>
                 <div className="flex items-center gap-2">
                   <div className="flex-1 h-2 bg-white/20 rounded-full overflow-hidden">
