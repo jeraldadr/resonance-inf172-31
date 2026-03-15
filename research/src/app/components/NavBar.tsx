@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { ExternalLink } from "lucide-react";
 
 const navItems = [
   { id: "overview", label: "Overview" },
@@ -9,6 +10,7 @@ const navItems = [
   { id: "wireframes", label: "Wireframes" },
   { id: "user-testing", label: "User Testing" },
   { id: "impact", label: "Impact" },
+  { id: "product", label: "Product" },
 ];
 
 export function NavBar() {
@@ -53,11 +55,22 @@ export function NavBar() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-violet-500" />
-          <span className="text-sm tracking-widest uppercase text-muted-foreground">
-            Research Report
-          </span>
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-violet-500" />
+            <span className="text-sm tracking-widest uppercase text-muted-foreground">
+              Research Report
+            </span>
+          </div>
+          <a
+            href="https://resonance-inf172-31.vercel.app/"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-violet-600 hover:text-violet-800"
+          >
+            <ExternalLink className="w-3.5 h-3.5" />
+            Product app
+          </a>
         </div>
 
         {/* Desktop Nav */}
@@ -93,6 +106,15 @@ export function NavBar() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-border px-6 py-4 flex flex-col gap-2">
+          <a
+            href="https://resonance-inf172-31.vercel.app/"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-violet-600"
+          >
+            <ExternalLink className="w-3.5 h-3.5" />
+            Product app
+          </a>
           {navItems.map((item) => (
             <button
               key={item.id}

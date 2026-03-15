@@ -19,6 +19,7 @@ import {
   LineChart,
   Sparkles,
   UsersRound,
+  ExternalLink,
 } from "lucide-react";
 
 // ─── Data ──────────────────────────────────────────────────────────────────
@@ -213,6 +214,16 @@ export function ResearchPage() {
                 </div>
               ))}
             </div>
+
+            <a
+              href="https://resonance-inf172-31.vercel.app/"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 mt-8 px-5 py-2.5 rounded-xl bg-violet-500/20 border border-violet-400/40 text-violet-200 hover:bg-violet-500/30 hover:text-white transition-colors text-sm"
+            >
+              <ExternalLink className="w-4 h-4" />
+              Try the product app
+            </a>
           </div>
 
           {/* Scroll indicator */}
@@ -676,6 +687,30 @@ export function ResearchPage() {
         </div>
       </section>
 
+      {/* ── Product ─────────────────────────────────────────────────── */}
+      <section id="product" className="py-28 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-6">
+          <SectionLabel number="08" label="Product" color="violet" />
+          <div className="max-w-2xl">
+            <h2 className="mb-5" style={{ fontSize: "2rem", fontWeight: 700 }}>
+              Try Resonance
+            </h2>
+            <p className="text-muted-foreground mb-8" style={{ lineHeight: 1.8 }}>
+              The interactive web app is available to try. Use the link below to open the product in a new tab.
+            </p>
+            <a
+              href="https://resonance-inf172-31.vercel.app/"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-violet-600 text-white font-medium hover:bg-violet-700 transition-colors"
+            >
+              <ExternalLink className="w-4 h-4" />
+              Open product app
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ── Footer ─────────────────────────────────────────────────── */}
       <footer className="border-t border-border py-10 bg-white">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
@@ -683,7 +718,18 @@ export function ResearchPage() {
             <div className="w-1.5 h-1.5 rounded-full bg-violet-500" />
             <span>AI Music & Stress Research · Spring 2026</span>
           </div>
-          <span>Research ongoing — last updated March 5, 2026</span>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="https://resonance-inf172-31.vercel.app/"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 text-violet-600 hover:text-violet-800 underline underline-offset-2"
+            >
+              <ExternalLink className="w-3.5 h-3.5" />
+              Product app
+            </a>
+            <span>Research ongoing — last updated March 5, 2026</span>
+          </div>
         </div>
       </footer>
     </div>
