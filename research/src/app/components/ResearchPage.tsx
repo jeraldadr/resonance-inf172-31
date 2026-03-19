@@ -193,7 +193,7 @@ export function ResearchPage() {
 
             <h1 className="text-white mb-6" style={{ fontSize: "clamp(2.25rem, 5.5vw, 4rem)", fontWeight: 700, lineHeight: 1.1 }}>
               AI-Powered Music for{" "}
-              <span style={{ color: "#a78bfa" }}>Teen Stress Relief</span>
+              <span style={{ color: "#a78bfa" }}>Stress Relief</span>
             </h1>
 
             <p className="text-violet-100/70 mb-10 max-w-2xl" style={{ fontSize: "1.075rem", lineHeight: 1.8 }}>
