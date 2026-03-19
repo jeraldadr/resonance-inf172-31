@@ -234,6 +234,28 @@ export function ResearchPage() {
         </div>
       </section>
 
+      {/* ── Abstract ─────────────────────────────────────────────── */}
+      <section id="abstract" className="py-28 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <SectionLabel number="00" label="Abstract" color="violet" />
+          <div className="max-w-4xl">
+            <p className="text-muted-foreground" style={{ lineHeight: 1.8 }}>
+              College students experience high levels of stress, yet accessible preventative tools remain limited. This project aimed to develop and evaluate
+              Resonance, an AI-powered website that uses self-reported emotional data to generate personalized music recommendations and visualize stress
+              patterns. A mixed-methods evaluation was conducted using a convenience sample of 37 college students. Participants first completed a survey
+              measuring stress levels, coping behaviors, and music listening habits. From this group, 10 participants took part in 30-minute interactive
+              sessions where they explored the prototype and evaluated its usability and emotional relevance. Pre- and post-session measures included
+              self-reported stress levels and behavioral observations to assess usability, perceived usefulness, and emotional relevance of the AI-generated
+              playlists. Thirty participants reported experiencing frequent academic stress and commonly used music as a coping mechanism but struggled to find
+              appropriate playlists. During prototype testing, 70% of participants rated the system between 6 and 10 out of 10 in its usefulness in helping manage
+              stress. These preliminary findings suggest that integrating AI-powered music recommendations may provide a practical tool for supporting everyday stress
+              management among students. Future work will expand the sample size, refine recommendation algorithms based on user feedback, and develop a
+              mobile version to improve accessibility and long-term engagement.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ── Research Methodology + Initial User Research ─────────── */}
       <section id="methodology" className="py-28 bg-white">
         <div className="max-w-6xl mx-auto px-6">

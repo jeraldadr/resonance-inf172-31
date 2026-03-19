@@ -3,6 +3,7 @@ import { ExternalLink } from "lucide-react";
 
 const navItems = [
   { id: "overview", label: "Overview" },
+  { id: "abstract", label: "Abstract" },
   { id: "methodology", label: "Research Methodologies" },
   { id: "problem", label: "Problem Statement" },
   { id: "goals", label: "Research Goals" },
